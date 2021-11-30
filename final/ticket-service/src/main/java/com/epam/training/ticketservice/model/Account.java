@@ -1,0 +1,42 @@
+package com.epam.training.ticketservice.model;
+
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public void Account{
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Unique
+    private String username;
+    private String passw;
+
+    public Account(String username, String passw){
+        this.username = username;
+        this.passw = passw;
+    }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Account that = (Account) o;
+        return Double.compare(that.netPrice, netPrice) == 0 &&
+        Objects.equals(name, that.name);
+    }*/
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, passw);
+    }
+}
