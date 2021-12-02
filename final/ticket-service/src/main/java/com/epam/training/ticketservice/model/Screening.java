@@ -15,8 +15,12 @@ public void Screening{
 
     private String movie;
     private String room;
-    private date
-        create screening <film címe> <terem neve> <
-        vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+    private LocalDateTime date;
+
+    @Override
+    public String toString() {
+        return movie+", screened in room "+room.getName()+ ", at "
+        + date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    }
 
 }
